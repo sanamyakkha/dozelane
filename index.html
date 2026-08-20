@@ -36,8 +36,14 @@
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-left:12px}
   .btn.ghost:hover{background:var(--ink);color:var(--cream)}
   .hero img{width:100%;border-radius:4px;display:block}
-  .trust-row{display:flex;gap:28px;margin-top:26px;font-family:-apple-system,sans-serif;font-size:13px;color:var(--muted)}
+  .trust-row{display:flex;gap:28px;margin-top:26px;font-family:-apple-system,sans-serif;font-size:13px;color:var(--muted);flex-wrap:wrap}
   .trust-row div:before{content:"— ";color:var(--sage-dark)}
+
+  /* Wide band */
+  .band{position:relative;overflow:hidden}
+  .band img{width:100%;display:block;max-height:520px;object-fit:cover}
+  .band .quote{position:absolute;left:0;right:0;bottom:0;padding:36px 24px;background:linear-gradient(transparent,rgba(35,33,29,.72));color:var(--cream);font-size:clamp(18px,2.4vw,24px);font-style:italic}
+  .band .quote small{display:block;font-style:normal;font-family:-apple-system,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;color:#cfc9bb}
 
   /* Problem */
   .problem{background:var(--charcoal);color:var(--cream);padding:80px 0;text-align:left}
@@ -65,6 +71,30 @@
   .card li{padding:9px 0;border-bottom:1px solid var(--line);font-size:16px}
   .card li:last-child{border-bottom:none}
   .card li:before{content:"✓ ";color:var(--sage-dark)}
+
+  /* Details / craftsmanship */
+  .details{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:88px 0}
+  .details-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;margin-top:8px}
+  .spec{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+  .spec div{padding:20px 18px;border-bottom:1px solid var(--line)}
+  .spec b{display:block;font-family:-apple-system,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-dark);font-weight:600;margin-bottom:6px}
+  .spec span{font-size:16px}
+  .details-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .details-imgs img{width:100%;border-radius:4px;display:block}
+  .details-imgs img.tall{grid-column:1/-1}
+  .colors{display:flex;gap:10px;align-items:center;margin-top:22px;font-family:-apple-system,sans-serif;font-size:13px;color:var(--muted)}
+  .dot{width:22px;height:22px;border-radius:50%;border:1px solid var(--line)}
+
+  /* Reviews */
+  .reviews{padding:88px 0}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+  .review{border:1px solid var(--line);border-radius:4px;padding:28px;background:#fbf8f2}
+  .stars{color:var(--accent);letter-spacing:.2em;font-size:15px;margin-bottom:14px}
+  .review p{font-size:16px;font-style:italic;color:var(--ink)}
+  .review cite{display:block;margin-top:16px;font-family:-apple-system,sans-serif;font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .stat-row{display:flex;gap:36px;flex-wrap:wrap;margin-top:36px;font-family:-apple-system,sans-serif}
+  .stat b{font-size:30px;font-weight:600;color:var(--sage-dark);display:block}
+  .stat span{font-size:13px;color:var(--muted)}
 
   /* Bundle banner */
   .bundle{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 0}
@@ -107,10 +137,11 @@
   footer{padding:32px 0;font-family:-apple-system,sans-serif;font-size:13px;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
 
   @media(max-width:820px){
-    .hero-grid,.card,.bundle .wrap,.steps{grid-template-columns:1fr}
+    .hero-grid,.card,.bundle .wrap,.steps,.details-grid,.review-grid{grid-template-columns:1fr}
     .card.flip .card-img{order:0}
     .hero{padding:48px 0 40px}
     .btn.ghost{margin-left:0;margin-top:12px}
+    .spec{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -138,7 +169,7 @@
       </div>
     </div>
     <div>
-      <img src="cap_lifestyle.jpg" alt="Woman resting in a dark calm bedroom wearing the Dozelane Recovery Cap">
+      <img src="mask_life_1.jpg" alt="Woman sleeping deeply wearing the Dozelane Deep Sleep Mask on cream linen bedding">
     </div>
   </div>
 </header>
@@ -149,6 +180,13 @@
     <p>Messy ice packs that drip and slip. Pills you don't want to rely on. Light sneaking around cheap masks. Dozelane was built for the hours when your nervous system won't switch off — drug-free, reusable, and designed to actually stay on while you rest.</p>
   </div>
 </section>
+
+<div class="band">
+  <img src="mask_hero.jpg" alt="The Dozelane Deep Sleep Mask resting on cream linen in soft morning light">
+  <div class="quote">"Comfortable from the first night — my sleep quality genuinely improved."
+    <small>Verified buyer review · Deep Sleep Mask</small>
+  </div>
+</div>
 
 <section class="products" id="products">
   <div class="wrap">
@@ -179,7 +217,7 @@
     </div>
 
     <div class="card flip">
-      <div class="card-img"><img src="mask_product_v2.jpg" alt="The Deep Sleep Mask — premium 3D contoured weighted mask in charcoal gray on cream linen"></div>
+      <div class="card-img"><img src="mask_studio_1.jpg" alt="The Deep Sleep Mask — 3D contoured weighted mask in charcoal gray, studio shot"></div>
       <div>
         <div class="tag">Deep, Uninterrupted Sleep</div>
         <h3>The Deep Sleep Mask</h3>
@@ -189,13 +227,80 @@
           <span class="save">Launch pricing</span>
         </div>
         <ul>
-          <li>Gentle micro-weight pressure quiets a racing mind</li>
-          <li>100% blackout contoured cups — no pressure on eyelids</li>
-          <li>Dual-sided: cooling for summer, plush for winter</li>
-          <li>Zero-pressure adjustable fit, side-sleeper friendly</li>
+          <li>220 g of fine glass-bead weight settles a racing mind</li>
+          <li>100% blackout 3D contoured cups — zero pressure on eyelids or lashes</li>
+          <li>Plush memory foam molds to your face and seals out light leaks</li>
+          <li>Adjustable, hair-friendly strap — side-sleeper approved</li>
         </ul>
         <a class="btn" href="https://dozelane.com/products/deep-sleep-mask">Shop the Sleep Mask</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="details">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Deep Sleep Mask, Up Close</div>
+      <h2 class="sec">Designed down to the gram.</h2>
+      <p>No gimmicks — just materials and geometry that do the work. Every unit ships in a protective retail box.</p>
+    </div>
+    <div class="details-grid">
+      <div>
+        <div class="spec">
+          <div><b>Weight</b><span>220 g glass micro-bead fill</span></div>
+          <div><b>Cups</b><span>3D contoured, patented design</span></div>
+          <div><b>Interior</b><span>Slow-rebound memory foam</span></div>
+          <div><b>Exterior</b><span>Breathable plush knit</span></div>
+          <div><b>Fit</b><span>Fully adjustable strap</span></div>
+          <div><b>Care</b><span>Hand wash cool, air dry</span></div>
+        </div>
+        <div class="colors">
+          <span>Three colorways:</span>
+          <span class="dot" style="background:#4a4a4e" title="Charcoal"></span>
+          <span class="dot" style="background:#1c1c1e" title="Black"></span>
+          <span class="dot" style="background:#7a6a8a" title="Violet"></span>
+          <span>Charcoal · Black · Violet</span>
+        </div>
+      </div>
+      <div class="details-imgs">
+        <img src="mask_closeup.jpg" alt="Close-up of the Deep Sleep Mask being adjusted">
+        <img src="mask_concept.jpg" alt="Deep Sleep Mask with glass micro-bead fill visualised">
+        <img class="tall" src="mask_studio_2.jpg" alt="Deep Sleep Mask second studio angle">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Early Feedback</div>
+      <h2 class="sec">People are already sleeping on it.</h2>
+      <p>From verified buyers of our manufacturing partner's first production runs.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Incredible value — comfortable to wear, and my sleep quality genuinely improved. Highly recommend."</p>
+        <cite>Verified buyer · repeat order of 69 units</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"The contoured cups are the difference — blackout without anything pressing on my eyes."</p>
+        <cite>Verified buyer</cite>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>"Soft, stays put on my side, and the weight is calming without feeling heavy."</p>
+        <cite>Verified buyer</cite>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>4.4 / 5</b><span>average buyer rating</span></div>
+      <div class="stat"><b>2,200+</b><span>buyers served</span></div>
+      <div class="stat"><b>53%</b><span>of buyers reorder</span></div>
+      <div class="stat"><b>13 yrs</b><span>supplier track record</span></div>
     </div>
   </div>
 </section>
@@ -214,7 +319,7 @@
     </div>
     <div class="bundle-imgs">
       <img src="cap_lifestyle.jpg" alt="Recovery Cap worn during rest">
-      <img src="mask_lifestyle_v2.jpg" alt="Deep Sleep Mask worn while sleeping">
+      <img src="mask_life_2.jpg" alt="Deep Sleep Mask worn while sleeping">
     </div>
   </div>
 </section>
@@ -264,7 +369,7 @@
     </details>
     <details>
       <summary>Will the mask press on my eyes?</summary>
-      <p>No. The contoured eye cups seal out light around your eyes rather than against them, so there's zero pressure on your eyelids or lashes.</p>
+      <p>No. The patented 3D contoured cups seal out light around your eyes rather than against them, so there's zero pressure on your eyelids or lashes.</p>
     </details>
     <details>
       <summary>Is it one-size-fits-all?</summary>
@@ -272,7 +377,7 @@
     </details>
     <details>
       <summary>How do I clean them?</summary>
-      <p>The mask is machine washable. The cap wipes clean with a damp cloth. Both are designed to be reused thousands of times.</p>
+      <p>Hand wash the mask in cool water and air dry. The cap wipes clean with a damp cloth. Both are designed to be reused for years.</p>
     </details>
     <details>
       <summary>Shipping and returns?</summary>
